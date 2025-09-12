@@ -99,7 +99,7 @@ Il existe deux types d’utilisateurs :
 
 ---
 
-### ⚠️ Notes importantes
+### Notes importantes
 
 - Toutes les routes **sauf `/auth/register` et `/auth/login`** nécessitent un JWT dans le header :  
 
