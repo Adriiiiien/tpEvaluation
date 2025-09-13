@@ -31,7 +31,7 @@ Il existe deux types d’utilisateurs :
 
 ## III Arborescence du projet
 
-.
+```
 ├── server.js
 ├── routes/
 │   ├── auth.js
@@ -52,6 +52,7 @@ Il existe deux types d’utilisateurs :
 ├── .env.docker
 ├── docker-compose.yml
 └── Dockerfile
+```
 
 ---
 
