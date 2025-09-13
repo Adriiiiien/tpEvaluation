@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const candidaturesController = require('../controllers/candidaturesController');
-const authenticateToken = require('../middleware/authMiddleware');
+const authenticateToken = require('../middleware/authMiddleware.js');
 
 router.get('/mes-candidatures', authenticateToken, candidaturesController.getCandidaturesUtilisateur);
 router.get('/mission/:missionId', authenticateToken, candidaturesController.getCandidaturesByMission);

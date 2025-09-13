@@ -29,7 +29,33 @@ Il existe deux types d’utilisateurs :
 
 ---
 
-## III Base de données
+## III Arborescence du projet
+
+.
+├── server.js
+├── routes/
+│   ├── auth.js
+│   ├── missions.js
+│   └── candidatures.js
+├── controllers/
+│   ├── authController.js
+│   ├── missionsController.js
+│   └── candidaturesController.js
+├── middleware/
+│   └── authMiddleware.js
+├── MLD/
+│   └── MLD.png
+├── BDD_structure.sql
+├── BDD_docker.sql
+├── package.json
+├── .env
+├── .env.docker
+├── docker-compose.yml
+└── Dockerfile
+
+---
+
+## IV Base de données
 
 ### utilisateur
 | Champ | Type | Description |
@@ -65,7 +91,7 @@ Il existe deux types d’utilisateurs :
 
 ---
 
-### IV Les Routes
+### V Les Routes
 
 ### 1 Utilisateurs
 
@@ -106,3 +132,23 @@ Il existe deux types d’utilisateurs :
 - Les rôles sont contrôlés :
 - **Bénévole** : ne peut créer/modifier/supprimer des missions, ni voir toutes les candidatures d’une mission.  
 - **Association** : ne peut pas postuler, mais peut voir toutes les candidatures pour ses missions et gérer leur statut.
+
+---
+
+### VI Docker
+
+- Lancer l'application : 
+- docker compose up --build 
+
+- **L’API** et la base de données **MySQL** seront automatiquement lancées dans des conteneurs :
+- **Un conteneur `db` (MySQL)** : contient la base de données `emplois`.  
+- **Un conteneur `api` (Node.js/Express)** : contient l’application backend (API REST).  
+- **Un conteneur `phpmyadmin`** : permet de visualiser et manipuler la base de données via une interface web.  
+
+- Services disponibles :
+- API Node.js : http://localhost:3000
+- phpMyAdmin : http://localhost:8080 (Afin de récupérer l'interface phpMyAdmin comme en local)
+
+- Avec Docker, l’utilisation de l’API reste identique :  
+- on utilise exactement les **mêmes requêtes Postman qu’en local** (`/auth/register`, `/auth/login`, `/missions`, etc.).  
+- La différence est que les données ne sont plus stockées sur votre MySQL local mais dans le **conteneur MySQL** associé, et elles sont conservées grâce au **volume Docker** même si les conteneurs sont arrêtés.
